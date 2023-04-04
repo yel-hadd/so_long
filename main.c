@@ -6,23 +6,26 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/02 16:55:13 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:17:23 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
+void	f(void)
+{
+	system("leaks a.out");
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*map;
-	int		mapfd;
 
-	mapfd = open(av[1], O_RDONLY);
-	map = new_map_line(get_next_line(mapfd));
-	while (map->line != NULL)
+	map = getmap(av[1]);
+	while (map != NULL)
 	{
-		printf("%s", map->line);
-		free(str);
-		str = get_next_line(mapfd);
+		printf("%s\n", map->line);
+		map = map->next;
 	}
+	//atexit(f);
 }
