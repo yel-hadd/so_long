@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/04 17:12:23 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:24:15 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,18 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	*ft_calloc(size_t count, size_t size);
 int		get_next_line(int fd, char **res);
 char	*ft_strjoin(char *s1, char *s2);
-t_list	*new_map_line(char *line);
-size_t	ft_strlen(const char *s);
 char	*ft_strchr(char *s, int c);
+t_list	*new_map_line(char *line);
+void	ft_lstdelone(t_list *lst);
+void	ft_lstclear(t_list **lst);
+size_t	ft_strlen(const char *s);
+t_list	*ft_lstlast(t_list *lst);
 t_list	*getmap(char *map_path);
+int		ft_lstsize(t_list *lst);
 char	*remove_nl(char *s1);
 char	*ft_strdup(char *s1);
+
+
 
 
 # ifndef BUFFER_SIZE
