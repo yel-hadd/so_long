@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/08 18:04:49 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/11 00:29:47 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	all_ones(char *string)
 	int	i;
 
 	i = 0;
-	while (string[i])
+	while (string[i] && string[i] != '\n')
 	{
 		if (string[i] != '1')
 			return (0);
@@ -44,8 +44,6 @@ int	starts_ends_1(t_list *node)
 		len = ft_strlen(node->line);
 		if (node->line[0] != '1')
 			return (0);
-		else if (node->next == NULL && node->line[len - 2] != '1')
-			return (0);
 		else if (node->line[len - 1] != '1')
 			return (0);
 		node = node->next;
@@ -64,10 +62,10 @@ int	has_invalid_char(t_list *node)
 	{
 		str = node->line;
 		i = 0;
-		while (str[i])
+		while (str[i] != '\0')
 		{
 			c = str[i];
-			if (c != 'P' && c != 'C' && c != '0' && c != '1' && c != 'E')
+			if (c != 'P' && c != 'C' && c != '0' && c != '1' && c != 'E' && c != '\n')
 				return (1);
 			i ++;
 		}
@@ -88,17 +86,43 @@ int is_closed(t_list *ptr)
 	return (1);
 }
 
+int	block_count(t_list *node, char block)
+{
+	int		i;
+	char	*str;
+	int		count;
+
+	count = 0;
+	while (node != NULL)
+	{
+		i = 0;
+		str = node->line;
+		while (str[i])
+		{
+			if (str[i] == block)
+				count += 1;
+			i ++;
+		}
+		node = node->next;
+	}
+	return (count);
+}
+
 int	is_valid_map(t_list **ptr)
 {
 	t_list	*map;
 
 	map = *ptr;
+	if (ft_lstsize(map) < 3)
+		return (-2);
 	if (has_invalid_char(map))
 		return (-1);
-	if (ft_lstsize(map) <= 3)
-		return (-2);
 	if (!is_closed(map))
 		return (-3);
+	if (block_count(map, 'E') != 1 || block_count(map, 'P') != 1)
+		return (-4);
+	if (block_count(map, 'C') < 1)
+		return (-4);
 	return (1);
 }
 
@@ -111,7 +135,7 @@ int	main(int ac, char **av)
 	printf("%d\n", is_valid_map(&map));
 	while (map != NULL)
 	{
-		printf("%s", map->line);
+		printf("%s\n", map->line);
 		map = map->next;
 	}
 	//atexit(f);
