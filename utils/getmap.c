@@ -26,7 +26,7 @@ t_list	*getmap(char	*map_path)
 	while (get_next_line(mapfd, &line) > 0)
 	{
 		tmp = line;
-		ft_lstadd_back(&map, new_map_line(remove_newline(line)));
+		ft_lstadd_back(&map, new_map_line(ft_strtrim(line, "\n")));
 		free(tmp);
 	}
 	close(mapfd);
