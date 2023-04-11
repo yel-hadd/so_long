@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:31:07 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/02 16:31:28 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/10 00:37:49 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if (!p)
 		return (NULL);
 	while (i < size)
-		p[i ++] = 0;
+		p[i ++] = '\0';
 	return (p);
 }
 
