@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   getmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
+/*   By: yel-hadd <yel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:10:48 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/08 18:06:38 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:14:23 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*getmap(char	*map_path)
 	while (get_next_line(mapfd, &line) > 0)
 	{
 		tmp = line;
-		ft_lstadd_back(&map, new_map_line(ft_strtrim(line, "\n")));
+		ft_lstadd_back(&map, new_map_line(ft_strtrim(line, "\n"), ++ i));
 		free(tmp);
 	}
 	close(mapfd);
