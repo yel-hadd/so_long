@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_player_pos.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-hadd <yel-hadd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:57:55 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/11 22:47:01 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:35:17 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
 /*
-if choice == 1 return x coordinate of player
-if choice == 0 return y coordinate of player
+if choice == 0 returns x coordinate of player
+if choice == 1 returns y coordinate of player
 */
 
 int	get_player_pos(t_list *node, int choice)
