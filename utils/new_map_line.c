@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   new_map_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
+/*   By: yel-hadd <yel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:48:46 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/02 16:53:00 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:13:08 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-t_list	*new_map_line(char *line)
+t_list	*new_map_line(char *line, int index)
 {
 	t_list	*ptr;
 
@@ -20,6 +20,7 @@ t_list	*new_map_line(char *line)
 	if (!ptr)
 		return (ptr);
 	ptr->line = line;
+	ptr->index = index;
 	ptr->next = NULL;
 	return (ptr);
 }
