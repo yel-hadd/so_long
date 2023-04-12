@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/11 22:48:32 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:33:18 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int	main(int ac, char **av)
 	if (is_valid_map(&map) != 1)
 		return (0);
 	p = spawn_player(map);
-	printf("--%c\n", get_line(map, p->y)[p->x]);
-	while (map != NULL)
+	flood_fill(&map, p->x, p->y);
+	//printf("--%c\n", get_line(map, p->y)[p->x]);
+	while (map!= NULL)
 	{
 		printf("%s\n", map->line);
 		map = map->next;
