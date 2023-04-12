@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:40 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:55:38 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,16 @@ void	f(void)
 	system("leaks a.out");
 }
 
-t_player	*spawn_player(t_list *map)
+int	flood_check(t_list **lst)
 {
-	t_player	*ptr;
-
-	ptr = (t_player *)malloc(sizeof(t_player));
-	if (!ptr)
-		return (ptr);
-
-	ptr->x = get_player_pos(map, 0);
-	ptr->y = get_player_pos(map, 1);
-	ptr->next = NULL;
-	return (ptr);
+	t_list	*
+	return (ft_lstclear(lst), 1);
 }
 
 int	main(int ac, char **av)
 {
 	t_list		*map;
+	t_list		*copy;
 	t_player	*p;
 	(void) ac;
 
@@ -41,12 +34,8 @@ int	main(int ac, char **av)
 	if (is_valid_map(&map) != 1)
 		return (0);
 	p = spawn_player(map);
-	flood_fill(&map, p->x, p->y);
-	//printf("--%c\n", get_line(map, p->y)[p->x]);
-	while (map!= NULL)
-	{
-		printf("%s\n", map->line);
-		map = map->next;
-	}
+	copy = ft_lstcopy(map);
+	flood_fill(&copy, p->x, p->y);
+
 	//atexit(f);
 }

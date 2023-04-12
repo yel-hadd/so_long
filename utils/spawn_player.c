@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstcopy.c                                       :+:      :+:    :+:   */
+/*   spawn_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 00:49:36 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:52:58 by yel-hadd         ###   ########.fr       */
+/*   Created: 2023/04/12 01:37:21 by yel-hadd          #+#    #+#             */
+/*   Updated: 2023/04/12 01:41:49 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-t_list	*ft_lstcopy(t_list *lst)
+t_player	*spawn_player(t_list *map)
 {
-	t_list  *copy;
+	t_player	*ptr;
 
-	copy = NULL;
-	while (lst != NULL)
-	{
-		ft_lstadd_back(&copy, new_map_line(ft_strdup(lst->line), lst->index));
-		lst = lst->next;
-	}
-	return (copy);
+	ptr = (t_player *)malloc(sizeof(t_player));
+	if (!ptr)
+		return (ptr);
+
+	ptr->x = get_player_pos(map, 0);
+	ptr->y = get_player_pos(map, 1);
+	ptr->next = NULL;
+    if (ptr->x == -1 || ptr->y == -1)
+        return (free(ptr), NULL);
+	return (ptr);
 }
