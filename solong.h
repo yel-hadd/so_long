@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:49:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:10:51 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int			is_valid_map(t_list **ptr);
 t_player	*spawn_player(t_list *map);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
+int			flood_check(t_list **lst);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstcopy(t_list *lst);
 t_list		*getmap(char *map_path);
@@ -59,6 +60,8 @@ int			is_closed(t_list *ptr);
 int			all_ones(char *string);
 char		*ft_strdup(char *s1);
 int			ft_strlen(char *s);
+
+
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
