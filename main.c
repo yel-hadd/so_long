@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:55:38 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:51:38 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 void	f(void)
 {
 	system("leaks a.out");
-}
-
-int	flood_check(t_list **lst)
-{
-	t_list	*
-	return (ft_lstclear(lst), 1);
 }
 
 int	main(int ac, char **av)
@@ -36,6 +30,8 @@ int	main(int ac, char **av)
 	p = spawn_player(map);
 	copy = ft_lstcopy(map);
 	flood_fill(&copy, p->x, p->y);
-
-	//atexit(f);
+	printf("%d\n", flood_check(&copy));
+	ft_lstclear(&map);
+	free(p);
+	atexit(f);
 }
