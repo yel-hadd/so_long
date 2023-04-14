@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:10:48 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:22 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:33:37 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_list	*getmap(char	*map_path)
 
 	map = NULL;
 	mapfd = open(map_path, O_RDONLY);
+	if (mapfd == -1)
+		return (NULL);
 	i = -1;
 	while (get_next_line(mapfd, &line) > 0)
 	{
