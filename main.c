@@ -6,11 +6,12 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 21:34:59 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/15 00:01:42 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+#include <mlx.h>
 
 void	f(void)
 {
@@ -19,8 +20,8 @@ void	f(void)
 
 int	main(int ac, char **av)
 {
-	t_list		*map;
-	t_list		*copy;
+	t_map		*map;
+	t_map		*copy;
 	t_player	*p;
 	(void) ac;
 

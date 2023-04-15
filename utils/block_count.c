@@ -6,13 +6,13 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:04:48 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:34:47 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-int	block_count(t_list *node, char block)
+int	block_count(t_map *node, char block)
 {
 	int		i;
 	char	*str;

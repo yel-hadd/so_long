@@ -6,13 +6,13 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:00:21 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:25 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-int	has_invalid_char(t_list *node)
+int	has_invalid_char(t_map *node)
 {
 	int	i;
 	char	c;

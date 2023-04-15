@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   same_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 01:32:41 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
+/*   Created: 2023/04/14 23:24:35 by yel-hadd          #+#    #+#             */
+/*   Updated: 2023/04/15 00:12:14 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-void	flood_fill(t_map **lst, int x, int y)
+int	same_len(t_map *node)
 {
-	t_map	*m;
-	char	*line;
+	int	len;
 
-	m = *lst;
-	line = get_line(m, y);
-	if (line == NULL)
-		return ;
-	if (y >= ft_lstsize(m) || x >= ft_strlen(line))
-		return ;
-	if (line[x] == '1' || line[x] == 'X' )
-		return ;
-	line[x] = 'X';
-	flood_fill(lst, x + 1, y);
-	flood_fill(lst, x - 1, y);
-	flood_fill(lst, x, y + 1);
-	flood_fill(lst, x, y - 1);
-	return ;
+	len = ft_strlen(node->line);
+	while (node != NULL)
+	{
+		if (ft_strlen(node->line) != len)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }

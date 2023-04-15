@@ -6,15 +6,15 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 20:50:43 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 21:28:41 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-int flood_check(t_list **lst)
+int flood_check(t_map **lst)
 {
-    t_list *node;
+    t_map *node;
     int i;
     char *str;
 

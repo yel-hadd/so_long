@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:57:55 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:17 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ if choice == 0 returns x coordinate of player
 if choice == 1 returns y coordinate of player
 */
 
-int	get_player_pos(t_list *node, int choice)
+int	get_player_pos(t_map *node, int choice)
 {
 	int		i;
 	char	*str;

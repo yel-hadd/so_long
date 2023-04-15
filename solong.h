@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 21:10:51 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,43 +23,52 @@ typedef struct map
 	char			*line;
 	int				index;
 	struct map		*next;
-}	t_list;
+}	t_map;
 
 typedef struct player
 {
 	int			x;
 	int			y;
-	struct map	*next;
+	struct player	*next;
 }	t_player;
+
+typedef struct building_blocks
+{
+	int			x;
+	int			y;
+	struct building_blocks	*next;
+}	t_blocks;
 
 char		*ft_substr(char *s, unsigned int start, size_t len);
 void		*ft_memcpy(void *dst, void *src, size_t n);
-void		ft_lstadd_back(t_list **lst, t_list *new);
-int			get_player_pos(t_list *node, int choice);
-void		flood_fill(t_list **lst, int x, int y);
+void		ft_lstadd_back(t_map **lst, t_map *new);
+int			get_player_pos(t_map *node, int choice);
+void		flood_fill(t_map **lst, int x, int y);
 void		*ft_calloc(size_t count, size_t size);
-int			block_count(t_list *node, char block);
-t_list		*new_map_line(char *line, int index);
-char    	*get_line(t_list *node, int index);
+int			block_count(t_map *node, char block);
+t_map		*new_map_line(char *line, int index);
+char    	*get_line(t_map *node, int index);
 int			get_next_line(int fd, char **res);
 char		*ft_strtrim(char *s1, char *set);
 char		*ft_strjoin(char *s1, char *s2);
-int			has_invalid_char(t_list *node);
-int			starts_ends_1(t_list *node);
+int			has_invalid_char(t_map *node);
+int			starts_ends_1(t_map *node);
 char		*ft_strchr(char *s, int c);
-int			is_valid_map(t_list **ptr);
-t_player	*spawn_player(t_list *map);
-void		ft_lstdelone(t_list *lst);
-void		ft_lstclear(t_list **lst);
-int			flood_check(t_list **lst);
-t_list		*ft_lstlast(t_list *lst);
-t_list		*ft_lstcopy(t_list *lst);
-t_list		*getmap(char *map_path);
-int			ft_lstsize(t_list *lst);
-int			is_closed(t_list *ptr);
+int			is_valid_map(t_map **ptr);
+t_player	*spawn_player(t_map *map);
+void		ft_lstdelone(t_map *lst);
+void		ft_lstclear(t_map **lst);
+int			flood_check(t_map **lst);
+t_map		*ft_lstlast(t_map *lst);
+t_map		*ft_lstcopy(t_map *lst);
+t_map		*getmap(char *map_path);
+int			ft_lstsize(t_map *lst);
+int			is_closed(t_map *ptr);
 int			all_ones(char *string);
+int			same_len(t_map *node);
 char		*ft_strdup(char *s1);
 int			ft_strlen(char *s);
+
 
 
 

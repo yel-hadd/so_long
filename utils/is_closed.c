@@ -6,15 +6,15 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:59:21 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:27 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-int	is_closed(t_list *ptr)
+int	is_closed(t_map *ptr)
 {
-	t_list	*map;
+	t_map	*map;
 
 	map = ptr;
 	if (!all_ones(map->line) || !all_ones(ft_lstlast(map)->line))

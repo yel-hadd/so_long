@@ -6,16 +6,16 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:10:48 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 21:33:37 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-t_list	*getmap(char	*map_path)
+t_map	*getmap(char	*map_path)
 {
 	int		mapfd;
-	t_list	*map;
+	t_map	*map;
 	char	*line;
 	char	*tmp;
 	int		i;

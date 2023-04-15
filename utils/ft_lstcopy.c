@@ -6,15 +6,15 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:49:36 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:52:58 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-t_list	*ft_lstcopy(t_list *lst)
+t_map	*ft_lstcopy(t_map *lst)
 {
-	t_list  *copy;
+	t_map  *copy;
 
 	copy = NULL;
 	while (lst != NULL)

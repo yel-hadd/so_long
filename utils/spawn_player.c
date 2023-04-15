@@ -6,13 +6,13 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:37:21 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:41:49 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-t_player	*spawn_player(t_list *map)
+t_player	*spawn_player(t_map *map)
 {
 	t_player	*ptr;
 

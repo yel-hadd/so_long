@@ -6,17 +6,17 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:03:38 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:37 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-int	starts_ends_1(t_list *node)
+int	starts_ends_1(t_map *node)
 {
 	int		i;
 	size_t	len;
-	t_list	*last;
+	t_map	*last;
 
 	i = -1;
 	last = ft_lstlast(node);
