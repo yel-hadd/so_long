@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/16 17:06:22 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/16 23:54:47 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,12 @@ typedef struct player
 	struct player	*next;
 }	t_player;
 
-typedef struct mlx_pointers
-{
-	void				*ptr;
-	void				*win;
-	struct mlx_pointers	*next;
-}	t_mlx;
-
 typedef struct building_blocks
 {
-	void	*P;
+	void	*PR;
+	void	*PL;
+	void	*PU;
+	void	*PD;
 	void	*C;
 	void	*E;
 	void	*O;
@@ -52,7 +48,18 @@ typedef struct building_blocks
 	struct building_blocks	*next;
 }	t_blocks;
 
+typedef struct mlx_pointers
+{
+	void				*ptr;
+	void				*win;
+	t_map				*map;
+	t_player			*p;
+	t_blocks			*b;
+	struct mlx_pointers	*next;
+}	t_mlx;
+
 char		*ft_substr(char *s, unsigned int start, size_t len);
+t_mlx		*load_mlx(t_map *map, t_player *p, char *title);
 void		*ft_memcpy(void *dst, void *src, size_t n);
 void		ft_lstadd_back(t_map **lst, t_map *new);
 int			get_player_pos(t_map *node, int choice);
@@ -60,7 +67,6 @@ void		flood_fill(t_map **lst, int x, int y);
 void		*ft_calloc(size_t count, size_t size);
 int			block_count(t_map *node, char block);
 t_map		*new_map_line(char *line, int index);
-t_mlx    	*load_mlx(t_map *map, char *title);
 char    	*get_line(t_map *node, int index);
 int			get_next_line(int fd, char **res);
 char		*ft_strtrim(char *s1, char *set);
@@ -84,10 +90,6 @@ int			same_len(t_map *node);
 void		free_mlx(t_mlx **ptr);
 char		*ft_strdup(char *s1);
 int			ft_strlen(char *s);
-
-
-
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 50
