@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/16 02:40:27 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:27:03 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,22 @@ void	draw_map(void *ml, void *win, t_map *map, t_blocks *blocks)
 	}
 }
 
+void	start_game(t_map *map, t_player *p, t_blocks *b, t_mlx *m)
+{
+	draw_map(m->ptr, m->win, map, b);
+	mlx_loop(m->ptr);
+	free_mlx(&m);
+	ft_lstclear(&map);
+	free(p);
+}
+
 int	main(int ac, char **av)
 {
 	t_map		*map;
 	t_map		*copy;
 	t_player	*p;
 	t_blocks	*b;
-	void		*ml;
-	void		*win;
+	t_mlx		*m;
 
 	if (ac != 2)
 		return (1);
@@ -62,13 +70,8 @@ int	main(int ac, char **av)
 	flood_fill(&copy, p->x, p->y);
 	if (flood_check(&copy) != 1)
 		return (ft_lstclear(&map), free(p), 1);
-	ml = mlx_init();
-	win = mlx_new_window(ml, ft_strlen(map->line) * 40, (ft_lstlast(map)->index + 1) * 40, "SAAD");
-	b = load_blocks(ml);
-	draw_map(ml, win, map, b);
-	mlx_loop(ml);
-	free(ml);
-	ft_lstclear(&map);
-	free(p);
+	m = load_mlx(map, "SAAD");
+	b = load_blocks(m->ptr);
+	start_game(map, p, b, m);
 	//atexit(f);
 }
