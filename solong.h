@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/16 16:35:56 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:06:22 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <mlx.h>
+# include <mlx.h>
 
 
 typedef struct map
@@ -37,7 +37,7 @@ typedef struct player
 
 typedef struct mlx_pointers
 {
-	void				*ml;
+	void				*ptr;
 	void				*win;
 	struct mlx_pointers	*next;
 }	t_mlx;
@@ -53,7 +53,6 @@ typedef struct building_blocks
 }	t_blocks;
 
 char		*ft_substr(char *s, unsigned int start, size_t len);
-t_blocks    *load_blocks(void *mlx_ptr);
 void		*ft_memcpy(void *dst, void *src, size_t n);
 void		ft_lstadd_back(t_map **lst, t_map *new);
 int			get_player_pos(t_map *node, int choice);
@@ -61,11 +60,13 @@ void		flood_fill(t_map **lst, int x, int y);
 void		*ft_calloc(size_t count, size_t size);
 int			block_count(t_map *node, char block);
 t_map		*new_map_line(char *line, int index);
+t_mlx    	*load_mlx(t_map *map, char *title);
 char    	*get_line(t_map *node, int index);
 int			get_next_line(int fd, char **res);
 char		*ft_strtrim(char *s1, char *set);
 char		*ft_strjoin(char *s1, char *s2);
 int			has_invalid_char(t_map *node);
+t_blocks    *load_blocks(void *mlx_ptr);
 int			starts_ends_1(t_map *node);
 char		*ft_strchr(char *s, int c);
 int			is_valid_map(t_map **ptr);
@@ -77,11 +78,13 @@ t_map		*ft_lstlast(t_map *lst);
 t_map		*ft_lstcopy(t_map *lst);
 t_map		*getmap(char *map_path);
 int			ft_lstsize(t_map *lst);
-int			is_closed(t_map *ptr);
 int			all_ones(char *string);
+int			is_closed(t_map *ptr);
 int			same_len(t_map *node);
+void		free_mlx(t_mlx **ptr);
 char		*ft_strdup(char *s1);
 int			ft_strlen(char *s);
+
 
 
 
