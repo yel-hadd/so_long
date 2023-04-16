@@ -1,6 +1,7 @@
 NAME = solong
 HEADER = solong.h
 SRC := main.c \
+	utils/load_blocks.c \
 	utils/all_ones.c \
 	utils/ft_lstdelone.c \
 	utils/ft_strtrim.c \
