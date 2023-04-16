@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 20:50:43 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/15 22:07:24 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int flood_check(t_map **lst)
         {
             str = node->line;
             if (str[i] != '1' && str[i] != 'X' && str[i] != '0')
+            {
+                printf("%d\n", str[i]);
                 return (ft_lstclear(lst), 0);
+            }
         }
         node = node->next;
     }
