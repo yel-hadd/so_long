@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/14 23:26:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:35:56 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <mlx.h>
+
 
 typedef struct map
 {
@@ -27,19 +29,31 @@ typedef struct map
 
 typedef struct player
 {
-	int			x;
-	int			y;
+	int				x;
+	int				y;
+	int				collected;
 	struct player	*next;
 }	t_player;
 
+typedef struct mlx_pointers
+{
+	void				*ml;
+	void				*win;
+	struct mlx_pointers	*next;
+}	t_mlx;
+
 typedef struct building_blocks
 {
-	int			x;
-	int			y;
+	void	*P;
+	void	*C;
+	void	*E;
+	void	*O;
+	void	*W;	
 	struct building_blocks	*next;
 }	t_blocks;
 
 char		*ft_substr(char *s, unsigned int start, size_t len);
+t_blocks    *load_blocks(void *mlx_ptr);
 void		*ft_memcpy(void *dst, void *src, size_t n);
 void		ft_lstadd_back(t_map **lst, t_map *new);
 int			get_player_pos(t_map *node, int choice);
@@ -73,7 +87,7 @@ int			ft_strlen(char *s);
 
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 50
 # endif
 
 #endif
