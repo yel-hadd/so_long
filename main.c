@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 00:43:41 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:47:45 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int ac, char **av)
 	map = getmap(av[1]);
 	if (map == NULL || is_valid_map(&map) != 1)
 		return (ft_lstclear(&map), 1);
-	printf("******\n");
 	p = spawn_player(map);
 	copy = ft_lstcopy(map);
 	flood_fill(&copy, p->x, p->y);
