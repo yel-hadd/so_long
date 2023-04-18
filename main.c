@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 14:54:29 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:39:11 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	start_game(t_mlx *game)
 {
 	draw_map(game->ptr, game->win, game->map, game->b);
 	mlx_key_hook(game->win, key_hook, game);
+	mlx_hook(game->win, 17, 0, safe_exit_wrap, game);
 	mlx_loop(game->ptr);
 	free_mlx(&game);
 }
@@ -46,12 +47,12 @@ int	main(int ac, char **av)
 		return (1);
 	map = getmap(av[1]);
 	if (map == NULL || is_valid_map(&map) != 1)
-		return (ft_lstclear(&map), 1);
+		return (write(1, "Error\nInvalid map", 18), ft_lstclear(&map), 1);
 	p = spawn_player(map);
 	copy = ft_lstcopy(map);
 	flood_fill(&copy, p->x, p->y);
 	if (flood_check(&copy) != 1)
-		return (ft_lstclear(&map), free(p), 1);
+		return (write(1, "Error\nInvalid map", 18), ft_lstclear(&map), 1);
 	game = load_mlx(map, p, "SAAD");
 	start_game(game);
 }
