@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 00:25:27 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 00:42:11 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:48:32 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	move_right(t_mlx *game)
 	y = pl->y;
 	if (block_is_wall(game->map, x + 1, y))
 		return ;
+	ft_putnbr_fd(++ game->move, 1);
+	write(1, "\n", 1);
 	if (block_is_coin(game->map, x + 1, y))
 		pl->collected += 1;
 	if (pl->collected == map->coins)
