@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:37:21 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/15 22:23:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:43:06 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ t_player	*spawn_player(t_map *map)
 	ptr = (t_player *)malloc(sizeof(t_player));
 	if (!ptr)
 		return (ptr);
-
 	ptr->x = get_player_pos(map, 0);
 	ptr->y = get_player_pos(map, 1);
 	ptr->collected = 0;
 	ptr->next = NULL;
-    if (ptr->x == -1 || ptr->y == -1)
-        return (free(ptr), NULL);
+	if (ptr->x == -1 || ptr->y == -1)
+		return (free(ptr), NULL);
 	return (ptr);
 }
