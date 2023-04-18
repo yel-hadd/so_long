@@ -9,6 +9,7 @@ SRC := main.c \
 	utils/block_is_exit.c \
 	utils/get_next_line.c \
 	utils/starts_ends_1.c \
+	utils/ft_putnbr_fd.c \
 	utils/ft_lstdelone.c \
 	utils/is_valid_map.c \
 	utils/new_map_line.c \
