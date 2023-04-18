@@ -6,23 +6,23 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:14 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 14:36:48 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:54:29 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-int	key_hook(int keycode, t_mlx *game)
+int	key_hook(int key, t_mlx *game)
 {
-	if (keycode == 13)
+	if (key == 13 || key == 126)
 		move_up(game);
-	else if (keycode == 0)
+	else if (key == 0 || key == 123)
 		move_left(game);
-	else if (keycode == 1)
+	else if (key == 1 || key == 125)
 		move_down(game);
-	else if (keycode == 2)
+	else if (key == 2 || key == 124)
 		move_right(game);
-	else if (keycode == 53)
+	else if (key == 53)
 		exit(0);
 	return (0);
 }
