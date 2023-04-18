@@ -2,6 +2,8 @@ NAME = so_long
 HEADER = solong.h
 SRC := main.c \
 	utils/has_invalid_char.c \
+	utils/safe_exit.c \
+	utils/safe_exit_wrap.c \
 	utils/get_player_pos.c \
 	utils/ft_lstadd_back.c \
 	utils/block_is_coin.c \
