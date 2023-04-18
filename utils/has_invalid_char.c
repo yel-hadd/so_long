@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:00:21 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/15 22:03:41 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:37:02 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	has_invalid_char(t_map *node)
 {
-	int	i;
+	int		i;
 	char	c;
 	char	*str;
 
