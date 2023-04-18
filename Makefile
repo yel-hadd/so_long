@@ -1,4 +1,4 @@
-NAME = solong
+NAME = so_long
 HEADER = solong.h
 SRC := main.c \
 	utils/has_invalid_char.c \
