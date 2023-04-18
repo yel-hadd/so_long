@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 00:33:16 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:42:43 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct mlx_pointers
 	t_player			*p;
 	t_blocks			*b;
 	int					exit[2];
+	int					move;
 	struct mlx_pointers	*next;
 }	t_mlx;
 
@@ -77,8 +78,9 @@ char		*get_line(t_map *node, int index);
 int			get_next_line(int fd, char **res);
 char		*ft_strtrim(char *s1, char *set);
 char		*ft_strjoin(char *s1, char *s2);
-t_blocks	*load_blocks(void *mlx_ptr);
 int			has_invalid_char(t_map *node);
+t_blocks	*load_blocks(void *mlx_ptr);
+void		ft_putnbr_fd(int n, int fd);
 t_player	*spawn_player(t_map *map);
 int			starts_ends_1(t_map *node);
 char		*ft_strchr(char *s, int c);
