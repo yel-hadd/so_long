@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 14:57:19 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:34:38 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,12 @@ char		*ft_strtrim(char *s1, char *set);
 char		*ft_strjoin(char *s1, char *s2);
 t_blocks	*load_blocks(void *mlx_ptr);
 int			has_invalid_char(t_map *node);
-t_player	*spawn_player(t_map *map);
 void		ft_putnbr_fd(int n, int fd);
+int			safe_exit_wrap(t_mlx *game);
 int			starts_ends_1(t_map *node);
 char		*ft_strchr(char *s, int c);
 int			is_valid_map(t_map **ptr);
+t_player	*spawn_player(t_map *map);
 void		ft_lstdelone(t_map *lst);
 void		ft_lstclear(t_map **lst);
 int			flood_check(t_map **lst);
@@ -96,6 +97,7 @@ int			ft_lstsize(t_map *lst);
 int			all_ones(char *string);
 void		move_down(t_mlx *game);
 void		move_left(t_mlx *game);
+void		safe_exit(t_mlx	*game);
 int			is_closed(t_map *ptr);
 int			same_len(t_map *node);
 void		free_mlx(t_mlx **ptr);
