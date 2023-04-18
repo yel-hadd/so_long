@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:49:36 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/16 01:16:24 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:36:40 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_map	*ft_lstcopy(t_map *lst)
 {
-	t_map  *copy;
+	t_map	*copy;
 
 	copy = NULL;
 	while (lst != NULL)
