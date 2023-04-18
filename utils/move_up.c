@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 00:23:40 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 14:48:39 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:31:13 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	move_up(t_mlx *game)
 	pl->y -= 1;
 	mlx_put_image_to_window(game->ptr, game->win, bl->pu, x * 40, (y - 1) * 40);
 	if (block_is_exit(game->map, pl->x, pl->y) && pl->collected == map->coins)
-		exit(1);
+		safe_exit_wrap(game);
 }
