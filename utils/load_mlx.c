@@ -6,17 +6,17 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:59:21 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/16 23:54:36 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:40:20 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-t_mlx    *load_mlx(t_map *map, t_player *p, char *title)
+t_mlx	*load_mlx(t_map *map, t_player *p, char *title)
 {
 	t_mlx		*node;
 	int			x;
-    int			y;
+	int			y;
 
 	node = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!node)
@@ -28,6 +28,8 @@ t_mlx    *load_mlx(t_map *map, t_player *p, char *title)
 	node->b = load_blocks(node->ptr);
 	node->p = p;
 	node->map = map;
-    node->next = NULL;
+	node->exit[0] = map->exit[0];
+	node->exit[1] = map->exit[1];
+	node->next = NULL;
 	return (node);
 }
