@@ -6,15 +6,16 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 00:37:08 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:33 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:38:22 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-int isalnum(int c)
+int	isalnum(int c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') \
+	|| (c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }
