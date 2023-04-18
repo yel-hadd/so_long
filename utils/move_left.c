@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_left.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/18 00:24:38 by yel-hadd          #+#    #+#             */
+/*   Updated: 2023/04/18 00:41:33 by yel-hadd         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../solong.h"
+
+void	move_left(t_mlx *game)
+{
+	int			x;
+	int			y;
+	t_player	*pl;
+	t_blocks	*bl;
+	t_map		*map;
+
+	map = game->map;
+	pl = game->p;
+	bl = game->b;
+	x = pl->x;
+	y = pl->y;
+	if (block_is_wall(game->map, x - 1, y) != 0)
+		return ;
+	if (block_is_coin(game->map, x - 1, y) != 0)
+		pl->collected += 1;
+	if (pl->collected == map->coins)
+		mlx_put_image_to_window(game->ptr, game->win, bl->e, \
+		game->exit[0] * 40, game->exit[1] * 40);
+	mlx_put_image_to_window(game->ptr, game->win, bl->o, x * 40, y * 40);
+	pl->x -= 1;
+	mlx_put_image_to_window(game->ptr, game->win, bl->pl, (x - 1) * 40, y * 40);
+	if (block_is_exit(game->map, pl->x, pl->y) && pl->collected == map->coins)
+		exit(1);
+}
