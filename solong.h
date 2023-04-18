@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:22:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2023/04/18 14:42:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:57:19 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ char		*get_line(t_map *node, int index);
 int			get_next_line(int fd, char **res);
 char		*ft_strtrim(char *s1, char *set);
 char		*ft_strjoin(char *s1, char *s2);
-int			has_invalid_char(t_map *node);
 t_blocks	*load_blocks(void *mlx_ptr);
-void		ft_putnbr_fd(int n, int fd);
+int			has_invalid_char(t_map *node);
 t_player	*spawn_player(t_map *map);
+void		ft_putnbr_fd(int n, int fd);
 int			starts_ends_1(t_map *node);
 char		*ft_strchr(char *s, int c);
 int			is_valid_map(t_map **ptr);
